@@ -1,9 +1,9 @@
 {
   "fleet": true,
-  "contractName": "Name for Customer 5",
-  "concessionToInvoice": "Citroën",
+  "contractName": "Name for Customer 7",
+  "concessionToInvoice": "Citroën République",
   "startDate": "+5w",
-  "duration": 5,
+  "duration": 2,
   "optionName": "option 1 - 4 missions/y",
   "creditsNumber": "16",
   "packPlanned": true,
