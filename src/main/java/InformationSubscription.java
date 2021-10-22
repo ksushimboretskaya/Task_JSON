@@ -9,7 +9,7 @@ import java.util.Set;
 @Getter
 @Setter
 @RequiredArgsConstructor
-public class FIleDataSubscription implements Serializable {
+public class InformationSubscription implements Serializable {
     private boolean fleet;
     private String contractName;
     private String concessionToInvoice;

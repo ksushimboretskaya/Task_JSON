@@ -5,35 +5,35 @@ import java.io.*;
 
 public class Serializator {
 
-    private static final String FILEPATH = "src/file.json";
-    private static final String NEWFILEPATH = "src/myFile.json";
+    private static final String FILE_PATH = "src/information.json";
+    private static final String NEW_FILE_PATH = "src/information-after-changes.json";
 
-    public Gson gson;
+    private Gson gson;
 
-    public void serialization() {
+    public void serialization (InformationSubscription informationSubscription) {
         gson = new GsonBuilder().setPrettyPrinting().create();
-        try {
-            Writer writer = new FileWriter(NEWFILEPATH);
-            gson.toJson(getChangedFields(), writer);
-            writer.close();
+        try (Writer writer = new FileWriter(NEW_FILE_PATH)) {
+            gson.toJson(informationSubscription, writer);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public FIleDataSubscription getChangedFields() throws InvalidObjectException {
-        FIleDataSubscription fIleDataSubscription = deserialization();
-        fIleDataSubscription.setFleet(false);
-        fIleDataSubscription.setDuration(5L);
-        fIleDataSubscription.setRecreate(false);
-        return fIleDataSubscription;
+    public InformationSubscription getChangedObject(InformationSubscription informationSubscription) {
+        changeFields(informationSubscription);
+        return informationSubscription;
     }
 
-    public FIleDataSubscription deserialization() throws InvalidObjectException {
+    public void changeFields(InformationSubscription informationSubscription) {
+        informationSubscription.setFleet(false);
+        informationSubscription.setDuration(5L);
+        informationSubscription.setRecreate(false);
+    }
+
+    public InformationSubscription createObjectFromJSON() throws InvalidObjectException {
         gson = new Gson();
         try {
-            Reader reader = new FileReader(FILEPATH);
-            return gson.fromJson(reader, FIleDataSubscription.class);
+            return gson.fromJson(new FileReader(FILE_PATH), InformationSubscription.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
