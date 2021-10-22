@@ -1,5 +1,16 @@
 {
-  "fleet": true,
+  "fleet": false,
+  "contractName": "Name for Customer 7",
+  "concessionToInvoice": "Citroën République",
+  "startDate": "+5w",
+  "duration": 5,
+  "optionName": "option 1 - 4 missions/y",
+  "creditsNumber": "16",
+  "packPlanned": true,
+  "packSubscriptionMessage": "subscription not started",
+  "cancel": "OTHER:description",
+  "recreate": false,
+  "state": "Pack résilié",
   "customer": {
     "gender": "Mme",
     "firstName": "AutoFleet7",
@@ -15,14 +26,12 @@
     "model": "model",
     "quantity": "2"
   },
-  "contractName": "Name for Customer 7",
   "visibleContractsNames": [
     "Name for Customer 5",
     "Name for Customer 2",
     "Name for Customer 4",
     "Name for Customer 7"
   ],
-  "concessionToInvoice": "Citroën République",
   "visibleConcessions": [
     "Citroën République",
     "Shared Concession"
@@ -30,15 +39,6 @@
   "visibleBrands": [
     "DS_Paris_PUD_DS"
   ],
-  "startDate": "+5w",
-  "duration": 2,
-  "optionName": "option 1 - 4 missions/y",
-  "creditsNumber": "16",
-  "packPlanned": true,
-  "packSubscriptionMessage": "subscription not started",
-  "cancel": "OTHER:description",
-  "recreate": true,
-  "state": "Pack résilié",
   "history": [
     "Créé par testpack%s@pk.fr à \\d{2}h\\d{2} le +Today_French",
     "Résilié par testpack%s@pk.fr à \\d{2}h\\d{2} le +Today_French Motif : description"
