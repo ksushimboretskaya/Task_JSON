@@ -2,14 +2,12 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import java.io.Serializable;
-import java.util.Map;
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
 @RequiredArgsConstructor
-public class InformationSubscription implements Serializable {
+public class Subscription {
     private boolean fleet;
     private String contractName;
     private String concessionToInvoice;
@@ -23,10 +21,11 @@ public class InformationSubscription implements Serializable {
     private boolean recreate;
     private String state;
 
-    private Map<String, String> customer;
-    private Map<String, String> car;
-    private Set<String> visibleContractsNames;
-    private Set<String> visibleConcessions;
-    private Set<String> visibleBrands;
-    private Set<String> history;
+    private Customer customer;
+    private Car car;
+
+    private List<String> visibleContractsNames;
+    private List<String> visibleConcessions;
+    private List<String> visibleBrands;
+    private List<String> history;
 }

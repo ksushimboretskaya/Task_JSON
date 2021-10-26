@@ -1,10 +1,34 @@
-import java.io.InvalidObjectException;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 
 public class Main {
 
-    public static void main(String[] args) throws InvalidObjectException {
-        Serializator serializator = new Serializator();
-        InformationSubscription informationSubscription = serializator.createObjectFromJSON();
-        serializator.serialization(serializator.getChangedObject(informationSubscription));
+    private static final String FILE_PATH = "src/subscription.json";
+    private static final String NEW_FILE_PATH = "src/subscription-after-changes.json";
+
+    public static void main(String[] args) {
+
+        Subscription subscriptionChanged = null;
+
+        try {
+            subscriptionChanged = new Gson().fromJson(new FileReader(FILE_PATH), Subscription.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        subscriptionChanged.setFleet(false);
+        subscriptionChanged.setContractName("Name for Customer 10");
+        subscriptionChanged.setCancel("Other:description");
+
+        try (Writer writer = new FileWriter(NEW_FILE_PATH)) {
+            new GsonBuilder().setPrettyPrinting().create().toJson(subscriptionChanged, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
