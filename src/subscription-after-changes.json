@@ -1,0 +1,46 @@
+{
+  "fleet": false,
+  "contractName": "Name for Customer 10",
+  "concessionToInvoice": "Citroën République",
+  "startDate": "+5w",
+  "duration": 2,
+  "optionName": "option 1 - 4 missions/y",
+  "creditsNumber": "16",
+  "packPlanned": true,
+  "packSubscriptionMessage": "subscription not started",
+  "cancel": "Other:description",
+  "recreate": true,
+  "state": "Pack résilié",
+  "customer": {
+    "gender": "Mme",
+    "firstName": "AutoFleet7",
+    "lastName": "TestFleet7",
+    "phoneNumber": "1234567890",
+    "email": "sub7@yopmail.com",
+    "address": "Boulogne-Billancourt, 92100, France",
+    "occupation": ""
+  },
+  "car": {
+    "plateNumber": "CONTRACT-7",
+    "brand": "Mercedes-Benz",
+    "model": "model",
+    "quantity": "2"
+  },
+  "visibleContractsNames": [
+    "Name for Customer 5",
+    "Name for Customer 2",
+    "Name for Customer 4",
+    "Name for Customer 7"
+  ],
+  "visibleConcessions": [
+    "Citroën République",
+    "Shared Concession"
+  ],
+  "visibleBrands": [
+    "DS_Paris_PUD_DS"
+  ],
+  "history": [
+    "Créé par testpack%s@pk.fr à \\d{2}h\\d{2} le +Today_French",
+    "Résilié par testpack%s@pk.fr à \\d{2}h\\d{2} le +Today_French Motif : description"
+  ]
+}

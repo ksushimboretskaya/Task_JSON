@@ -1,16 +1,32 @@
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        Deserial deserial = new Deserial();
-        MyJSON myJSON = deserial.deserialization();
-        System.out.println("fleet: " + myJSON.isFleet() + "\n" +
-                "cancel: " + myJSON.getCancel() + "\n" +
-                "contract name: " + myJSON.getContractName() + "\n" +
-                "concession to invoice: " + myJSON.getConcessionToInvoice()
-        );
+    private static final String FILE_PATH = "src/subscription.json";
+    private static final String NEW_FILE_PATH = "src/subscription-after-changes.json";
 
-        Serializ serializ = new Serializ();
-        serializ.Serialization();
+    public static void main(String[] args) {
+        Subscription subscription = new Subscription();
+        try {
+            subscription = new Gson().fromJson(new FileReader(FILE_PATH), Subscription.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Subscription subscriptionChanged = subscription;
+        subscriptionChanged.setFleet(false);
+        subscriptionChanged.setContractName("Name for Customer 10");
+        subscriptionChanged.setCancel("Other:description");
+
+        try (Writer writer = new FileWriter(NEW_FILE_PATH)) {
+            new GsonBuilder().setPrettyPrinting().create().toJson(subscriptionChanged, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
