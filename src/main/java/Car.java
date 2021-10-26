@@ -5,7 +5,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @RequiredArgsConstructor
-public class Car  {
+public class Car {
     private String plateNumber;
     private String brand;
     private String model;

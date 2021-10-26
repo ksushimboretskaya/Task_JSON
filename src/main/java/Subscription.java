@@ -20,10 +20,8 @@ public class Subscription {
     private String cancel;
     private boolean recreate;
     private String state;
-
     private Customer customer;
     private Car car;
-
     private List<String> visibleContractsNames;
     private List<String> visibleConcessions;
     private List<String> visibleBrands;

@@ -7,20 +7,18 @@ import java.io.IOException;
 import java.io.Writer;
 
 public class Main {
-
     private static final String FILE_PATH = "src/subscription.json";
     private static final String NEW_FILE_PATH = "src/subscription-after-changes.json";
 
     public static void main(String[] args) {
-
-        Subscription subscriptionChanged = null;
-
+        Subscription subscription = new Subscription();
         try {
-            subscriptionChanged = new Gson().fromJson(new FileReader(FILE_PATH), Subscription.class);
+            subscription = new Gson().fromJson(new FileReader(FILE_PATH), Subscription.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        Subscription subscriptionChanged = subscription;
         subscriptionChanged.setFleet(false);
         subscriptionChanged.setContractName("Name for Customer 10");
         subscriptionChanged.setCancel("Other:description");
